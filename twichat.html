@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -20,23 +21,24 @@
 
 <script>
 // Attach a submit handler to the form
-$( "#smsForm" ).submit(function( event ) {
- 
-  // Stop form from submitting normally
-  event.preventDefault();
+console.log("script");
+
+$(document).ready(function() {
+ $("#sendButton").click(function(event) {
+  console.log("sendform activated");
  
   // Get some values from elements on the page:
-  var $form = $( this ),
-    body = $form.find( "input[name='body']" ).val();
- 
+  content = $("#content").val();
+  console.log("content", content);
   // Send the data using post
-  var posting = $.post( "https://www.coderbuddy.com/smschat", { body: body } );
+  var posting = $.post( "/send", { content: content } );
  
   // Log result to console for now
-  posting.done(function( data ) {
+  /*posting.done(function( data ) {
     var content = $( data ).find( "#content" );
     console.log( content );
-  });
+  });*/
+ });
 });
 </script>
 
@@ -60,13 +62,13 @@ $( "#smsForm" ).submit(function( event ) {
 Send an SMS message to +1 510-257-9756 (tel:+15102579756)<br/>
 
 And then see your messages appear here, and reply to yourself with this form :) (in US/Canada)
-<form name="smsForm">
-<textarea name="body" rows="6" cols="40">
+<form name="smsForm" id="smsForm" method="post">
+<textarea name="content" id="content" rows="6" cols="40">
 </textarea><br/>
-<input type="submit" name="send" value=" Send " class="sendbutton">
+<input type="button" name="send" value=" Send " id="sendButton">
 </form>
 
-<div name="receivedmessages" class="receivedmessages">
+<div name="receivedMessages" id="receivedMessages">
 </div>
 
 
