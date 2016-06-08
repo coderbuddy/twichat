@@ -1,0 +1,47 @@
+{
+  "name": "twichat",
+  "version": "0.0.1",
+  "description": "An example of Twilio and Live Chat integration",
+  "author": "Adrian Scott <adrian@coderbuddy.com>",
+  "contributors": [{
+  "name": "Adrian Scott",
+  "email": "adrian@coderbuddy.com"
+}],
+  "bin": {
+  "module-name": "./bin/module-name"
+},
+  "scripts": {
+    "test": "",
+    "start": "",
+    "predeploy": "",
+    "postdeploy": "",
+    "prepublish": ""
+  },
+  "main": "lib/foo.js",
+  "repository": {
+  "type": "git",
+  "url": ""
+},
+  "bugs": {
+  "url": ""
+},
+  "keywords": [
+  "twilio",
+  "example",
+  "chat"
+],
+  "dependencies": {
+    "nconf": "0.8.4",
+    "twilio": "2.9.1"
+  },
+  "devDependencies": {
+  },
+  "preferGlobal": true,
+  "private": true,
+  "publishConfig": {
+  "registry": ""
+},
+  "subdomain": "coderbuddy",
+  "analyze": true,
+  "license": ""
+}
